@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-configmap-demo
+spec:
+  containers:
+  - name: nginx-config
+    image: nginx
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    envFrom:
+    - configMapRef:
+        name: nginx-config
